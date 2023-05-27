@@ -13,7 +13,7 @@ export const AppBar = () => {
             <StyledLink to="/">Home</StyledLink>
           </Li>
           <Li>
-            <StyledLink to="/cats">Movies</StyledLink>
+            <StyledLink to="/movies">Movies</StyledLink>
           </Li>
         </Ul>
       </Nav>

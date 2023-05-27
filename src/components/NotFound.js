@@ -22,7 +22,7 @@ export const AppBar = () => {
             <StyledLink to="/"><SiThemoviedatabase /></StyledLink>
           </li>
           <li>
-            <StyledLink to="/cats">Cats</StyledLink>
+            <StyledLink to="/movies">Movies</StyledLink>
           </li>
         </ul>
       </nav>
