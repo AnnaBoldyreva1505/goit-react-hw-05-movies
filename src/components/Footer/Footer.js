@@ -1,3 +1,6 @@
+
+
+
 import { FooterContainer, Text, Link, Icon, LinksWrapper, List } from './Footer.styled';
 
 export const Footer = () => {

@@ -13,6 +13,7 @@ export const App = () => {
         </Route>
         <Route path="*" element={<div>Page not found</div>} />
       </Routes> 
+
     </>
   );
 };

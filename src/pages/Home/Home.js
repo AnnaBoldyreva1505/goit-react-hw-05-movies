@@ -10,6 +10,8 @@ import {
   OtherFilmsRating,
 } from './Home.styled';
 
+
+
 export const Home = () => {
   //   const [movies, setMovies] = useState([]);
 
@@ -52,6 +54,7 @@ export const Home = () => {
           })}
         </OtherFilmsList>
       </OtherFilmsContainer>
+
     </>
   );
 };
