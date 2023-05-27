@@ -1,5 +1,11 @@
 import styled from 'styled-components';
 
+export const Title = styled.h1`
+  text-align: center;
+  text-transform: uppercase;
+  margin-top: 100px;
+`;
+
 export const OtherFilmsContainer = styled.div`
   padding: 0;
 `;
@@ -28,9 +34,9 @@ export const OtherFilmsItem = styled.li`
 
 export const OtherFilmsImage = styled.img`
   border-radius: 10px;
-  max-width: 400px;
+  width: 100%;
   transition: box-shadow 0.2s;
-  
+
   &:hover {
     box-shadow: 0px 0px 10px #f50057;
   }
@@ -39,7 +45,7 @@ export const OtherFilmsImage = styled.img`
 export const OtherFilmsRating = styled.span`
   position: absolute;
   top: 10px;
-  right: 10px; 
+  right: 10px;
   width: 40px;
   height: 40px;
   background-color: #f50057;

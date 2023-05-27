@@ -6,13 +6,12 @@ export const FooterContainer = styled.footer`
   left: 0;
   width: 100%;
   background-image: linear-gradient(to right, #ff8a00, #e52e71);
-  /* padding: 20px; */
   text-align: center;
 `;
 
 export const Text = styled.p`
-  margin-bottom: 10px;
   color: #fff;
+  margin: 0;
 `;
 
 export const Link = styled.a`

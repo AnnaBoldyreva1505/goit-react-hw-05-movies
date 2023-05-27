@@ -1,7 +1,14 @@
 import React from 'react';
 import { useEffect, useState } from 'react';
 import { fetchMovies } from '../../api';
-import {OtherFilmsContainer, OtherFilmsList, OtherFilmsItem, OtherFilmsImage, OtherFilmsRating} from './Home.styled'
+import {
+  Title,
+  OtherFilmsContainer,
+  OtherFilmsList,
+  OtherFilmsItem,
+  OtherFilmsImage,
+  OtherFilmsRating,
+} from './Home.styled';
 
 export const Home = () => {
   //   const [movies, setMovies] = useState([]);
@@ -26,22 +33,24 @@ export const Home = () => {
 
   return (
     <>
-      <h1>Trending Movies Today</h1>
+      <Title>Trending Movies Today</Title>
       <OtherFilmsContainer>
-      <OtherFilmsList>
-        {movies.map(({ title, id, poster_path, vote_average }) => {
-          return (
-            <OtherFilmsItem key={id}>
-              <OtherFilmsImage
-                src={`https://image.tmdb.org/t/p/w500${poster_path}`}
-                alt={title}
-                // width="200"
-              />
-              <OtherFilmsRating>{parseFloat(vote_average.toFixed(1))}</OtherFilmsRating>
-            </OtherFilmsItem>
-          );
-        })}
-      </OtherFilmsList>
+        <OtherFilmsList>
+          {movies.map(({ title, id, poster_path, vote_average }) => {
+            return (
+              <OtherFilmsItem key={id}>
+                <OtherFilmsImage
+                  src={`https://image.tmdb.org/t/p/w500${poster_path}`}
+                  alt={title}
+                  // width="200"
+                />
+                <OtherFilmsRating>
+                  {parseFloat(vote_average.toFixed(1))}
+                </OtherFilmsRating>
+              </OtherFilmsItem>
+            );
+          })}
+        </OtherFilmsList>
       </OtherFilmsContainer>
     </>
   );

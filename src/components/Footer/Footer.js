@@ -3,8 +3,10 @@ import { FooterContainer, Text, Link, Icon, LinksWrapper, List } from './Footer.
 export const Footer = () => {
   return (
     <FooterContainer>
-      <Text>Developed by a GoIT student <a href="@Anya_Boldyreva">Anna Boldyreva</a></Text>
       <LinksWrapper>
+      <List>
+          <Text>Developed by a GoIT student: </Text>
+        </List>
         <List>
           <Link href="https://github.com/AnnaBoldyreva1505">
             <Icon />
