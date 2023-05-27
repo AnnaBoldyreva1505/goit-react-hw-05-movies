@@ -1,6 +1,7 @@
 import { Outlet } from 'react-router-dom';
-import { AppBar } from './AppBar';
+import { AppBar } from './AppBar/AppBar';
 import styled from 'styled-components';
+import { Footer } from './Footer/Footer';
 
 const PageContainer = styled.div`
   display: flex;
@@ -13,6 +14,7 @@ export const SharedLayout = () => {
     <PageContainer>
       <AppBar />
       <Outlet />
+      <Footer />
     </PageContainer>
   );
 };
