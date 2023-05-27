@@ -57,3 +57,15 @@ export const OtherFilmsRating = styled.span`
   font-weight: bold;
   font-size: 18px;
 `;
+
+export const OtherFilmsTitle = styled.p`
+  position: absolute;
+  bottom: 0px;
+  left: 10px;
+  /* width: 40px;
+  height: 40px; */
+  color: #fff;
+  font-weight: bold;
+  font-size: 18px;
+`;
+

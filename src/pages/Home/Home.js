@@ -8,6 +8,7 @@ import {
   OtherFilmsItem,
   OtherFilmsImage,
   OtherFilmsRating,
+  OtherFilmsTitle,
 } from './Home.styled';
 
 
@@ -41,6 +42,7 @@ export const Home = () => {
           {movies.map(({ title, id, poster_path, vote_average }) => {
             return (
               <OtherFilmsItem key={id}>
+                 <OtherFilmsTitle><strong>{title}</strong></OtherFilmsTitle>
                 <OtherFilmsImage
                   src={`https://image.tmdb.org/t/p/w500${poster_path}`}
                   alt={title}
@@ -49,6 +51,7 @@ export const Home = () => {
                 <OtherFilmsRating>
                   {parseFloat(vote_average.toFixed(1))}
                 </OtherFilmsRating>
+               
               </OtherFilmsItem>
             );
           })}
