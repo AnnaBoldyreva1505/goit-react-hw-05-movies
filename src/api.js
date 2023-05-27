@@ -10,13 +10,13 @@ axios.defaults.baseURL = 'https://api.themoviedb.org/3/';
 
 const API_KEY = 'b6e9665514428b2c0f9442130a42f46a';
 
-export const fetchMovies = page => {
+export const fetchMovies = () => {
   return axios('trending/movie/day', {
     params: {
       api_key: API_KEY,
-      page,
     },
   });
+
 };
 
 
