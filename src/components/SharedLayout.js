@@ -13,7 +13,9 @@ export const SharedLayout = () => {
   return (
     <PageContainer>
       <AppBar />
-      <Outlet />
+      <main>
+        <Outlet />
+      </main>
       <Footer />
     </PageContainer>
   );

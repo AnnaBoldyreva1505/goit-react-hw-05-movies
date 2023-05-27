@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 
 export const Header = styled.header`
   background: linear-gradient(to right, #6a1b9a, #9c27b0);
-  padding: 10px 30px;
+  padding: 10px 40px;
 `;
 
 export const Nav = styled.nav``;
