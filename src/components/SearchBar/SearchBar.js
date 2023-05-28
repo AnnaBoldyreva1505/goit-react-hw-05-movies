@@ -1,5 +1,5 @@
 // import { useState } from 'react';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 import { BsFillSearchHeartFill } from 'react-icons/bs';
 import {
   SearchbarWrapper,
@@ -69,6 +69,8 @@ export const Searchbar = () => {
 
   return (
     <>
+    {isLoading}
+    {error}
       <SearchbarWrapper>
         <SearchForm onSubmit={handleSubmit(onSubmit)}>
           <SearchFormButtonInput {...register('searchQuery')} placeholder='Search movies' />
