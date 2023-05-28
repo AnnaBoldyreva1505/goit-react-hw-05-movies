@@ -1,6 +1,12 @@
 // import { useState } from 'react';
 // import PropTypes from 'prop-types';
-import { BsFillSearchHeartFill } from 'react-icons/bs';
+import { fetchForMoviesPage } from '../../api.js';
+import { useState, useEffect } from 'react';
+import { useForm } from 'react-hook-form';
+import toast, { Toaster } from 'react-hot-toast';
+import { MdMovieFilter } from 'react-icons/md';
+import img from '../../Images/No-Image-Placeholder.svg.png';
+import { Loader } from 'components/Loader/Loader.js';
 import {
   SearchbarWrapper,
   SearchForm,
@@ -12,12 +18,11 @@ import {
   FilmsImage,
   FilmsTitle,
 } from './SearchBar.styled.js';
-// import toast from 'react-hot-toast';
-import toast, { Toaster } from 'react-hot-toast';
-import { useForm } from 'react-hook-form';
-import { useState, useEffect } from 'react';
-import { fetchForMoviesPage } from '../../api.js';
-import img from '../../Images/No-Image-Placeholder.svg.png';
+
+
+
+
+
 
 export const Searchbar = () => {
   const [searchQuery, setSearchQuery] = useState('');
@@ -63,25 +68,25 @@ export const Searchbar = () => {
 
   const onSubmit = data => {
     setSearchQuery(data.searchQuery);
-    // fetchForMoviesPage(data.searchQuery);
     reset();
   };
 
   return (
     <>
-    {isLoading}
-    {error}
+    {error && <p>ERROR!</p>}
       <SearchbarWrapper>
         <SearchForm onSubmit={handleSubmit(onSubmit)}>
           <SearchFormButtonInput {...register('searchQuery')} placeholder='Search movies' />
           <SearchFormButton type="submit" name="searchQuery">
             <Span>
-              <BsFillSearchHeartFill size="2em" fill="#9c27b0" />
+              <MdMovieFilter size="2em" fill="#9c27b0" />
             </Span>
           </SearchFormButton>
           <Toaster />
         </SearchForm>
       </SearchbarWrapper>
+
+      {isLoading && <Loader />}
       <FilmsList>
         {movies.map(({ title, id, poster_path}) => {
           return (
