@@ -12,24 +12,18 @@ export const OtherFilmsContainer = styled.div`
 
 export const OtherFilmsList = styled.ul`
   display: grid;
-  grid-template-columns: repeat(
-    auto-fit,
-    minmax(100px, calc(100% * 3 / 12 - 30px))
-  );
+  grid-template-columns: repeat(5, minmax(0, 1fr)); 
   flex-wrap: wrap;
   gap: 30px 20px;
-  margin-bottom: 110px;
+  margin-bottom: 80px;
   justify-items: center;
+  padding: 0 40px;
 `;
 
 export const OtherFilmsItem = styled.li`
   position: relative;
   top: 0;
   transition: top 0.2s;
-
-  &:nth-child(even) {
-    top: 20px;
-  }
 `;
 
 export const OtherFilmsImage = styled.img`

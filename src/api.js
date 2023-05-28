@@ -19,6 +19,17 @@ export const fetchMovies = () => {
 
 };
 
+export const fetchForMoviesPage = (query) => {
+  return axios(`search/movie?&query=${query}`, {
+    params: {
+      api_key: API_KEY,
+    },
+  });
+
+};
+
+
+
 
 
 // /trending/get-trending список самых популярных фильмов на сегодня для создания коллекции на главной странице.
