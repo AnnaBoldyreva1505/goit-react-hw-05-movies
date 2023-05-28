@@ -8,6 +8,8 @@ const MovieDetails = () => {
 return (
 
     <>
+<button>Go to back</button>
+
     <img src='' alt=''/>
     <h2>Movie Name</h2>
     <p>User Score: </p>
