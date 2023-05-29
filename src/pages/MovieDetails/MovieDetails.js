@@ -13,6 +13,9 @@ import {
   Li,
   StyledLink,
 } from './MovieDetails.styled';
+
+
+
 const MovieDetails = () => {
   const [movie, setMovie] = useState({});
   const location = useLocation();
