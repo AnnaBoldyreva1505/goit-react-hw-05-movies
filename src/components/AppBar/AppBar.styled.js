@@ -31,11 +31,9 @@ export const Li = styled.li`
   }
 
   &:first-child {
-  margin-right: 40px; /* Измените значение margin здесь */
-}
+    margin-right: 40px;
+  }
 `;
-
-
 
 export const StyledLink = styled(NavLink)`
   text-decoration: none;
@@ -62,6 +60,3 @@ export const StyledLink = styled(NavLink)`
     }
   }
 `;
-
-
-

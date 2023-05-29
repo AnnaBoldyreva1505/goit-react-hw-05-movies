@@ -79,7 +79,7 @@ export const Searchbar = () => {
           <SearchFormButtonInput {...register('searchQuery')} placeholder='Search movies' />
           <SearchFormButton type="submit" name="searchQuery">
             <Span>
-              <MdMovieFilter size="2em" fill="#9c27b0" />
+              <MdMovieFilter size="2em" fill="#f50057" />
             </Span>
           </SearchFormButton>
           <Toaster />

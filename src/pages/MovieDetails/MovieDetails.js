@@ -1,42 +1,93 @@
-import {  } from "./MovieDetails.styled";
-
+import { useLocation, useNavigate, useParams } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import { fetchForMoviesDetalis } from '../../api';
+import {
+  ImgContainer,
+  AboutFilm,
+  Container,
+  ButtonGoToBack,
+  Title,
+  Raiting,
+  H3, 
+  Ul,
+  Li,
+  StyledLink,
+} from './MovieDetails.styled';
 const MovieDetails = () => {
+  const [movie, setMovie] = useState({});
+  const location = useLocation();
+  const navigate = useNavigate();
+  const { movieId } = useParams();
 
+  useEffect(() => {
+    const fetchMovieId = async () => {
+      try {
+        const response = await fetchForMoviesDetalis(movieId);
+        setMovie(response.data);
+        console.log(response.data);
+      } catch (error) {
+        console.log(error.message);
+      }
+    };
+    fetchMovieId();
+  }, [movieId]);
 
-
-
-return (
-
+  const { overview, title, genres = [], vote_average, poster_path } = movie;
+  console.log(vote_average);
+  return (
     <>
-<button>Go to back</button>
+      <ButtonGoToBack
+        onClick={() => {
+          navigate(location?.state?.from ?? '/');
+        }}
+      >
+        ← Go to back
+      </ButtonGoToBack>
+      <Container>
+        <ImgContainer>
+          <img
+            src={`https://image.tmdb.org/t/p/w500${poster_path}`}
+            alt="{title}"
+            width="300"
+          />
+        </ImgContainer>
+        <AboutFilm>
+          <Title>{title}</Title>
+          <Raiting>{vote_average}</Raiting>
+          <H3>Overview:</H3>
+          <p>{overview} </p>
+          <H3 >Genres: </H3>
+          <p>
+            {genres.map(({ id, name }) => (
+              <li key={id}>• {name}</li>
+            ))}
+          </p>
+          <div>
+            <H3>Additional information:</H3>
 
-    <img src='' alt=''/>
-    <h2>Movie Name</h2>
-    <p>User Score: </p>
-    <p>Overview </p>
-    <p>текст </p>
-    <p>Genres: </p>
-    <p>текст </p>
-
-    <div>
-    <p>Additional information</p>
-
-    <ul>
-        <li>
-            <a href="http://google.com">
-                Cast
-            </a>
-        </li>
-        <li>
-            <a href="http://google.com">
-                Reviews
-            </a>
-        </li>
-    </ul>
-    </div>
+            <Ul>
+              <Li>
+              <StyledLink
+                    to="cast"
+                    state={{ from: location.state?.from ?? '/' }}
+                  >
+                    Cast
+                  </StyledLink>
+              </Li>
+              <Li>
+              <StyledLink
+                    to="reviews"
+                    state={{ from: location.state?.from ?? '/' }}
+                  >
+                    Reviews
+                  </StyledLink>
+              </Li>
+            </Ul>
+          </div>
+        </AboutFilm>
+      </Container>
     </>
-)
-
-}
+  );
+};
 
 export default MovieDetails;

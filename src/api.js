@@ -28,6 +28,15 @@ export const fetchForMoviesPage = (query) => {
 
 };
 
+export const fetchForMoviesDetalis = (movieId) => {
+  return axios(`movie/${movieId}`, {
+    params: {
+      api_key: API_KEY,
+    },
+  });
+
+};
+
 
 
 
