@@ -14,8 +14,6 @@ import {
 
 
 export const Home = () => {
-  //   const [movies, setMovies] = useState([]);
-
   const [movies, setMovies] = useState([]);
 
   useEffect(() => {
@@ -31,8 +29,6 @@ export const Home = () => {
     };
     fetchMoviesHome();
   }, []);
-
-  console.log(movies);
 
   return (
     <>
