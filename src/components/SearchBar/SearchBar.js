@@ -35,7 +35,6 @@ export const Searchbar = () => {
     },
   });
 
-  console.log(searchQuery);
 
   useEffect(() => {
     if (!searchQuery) {
