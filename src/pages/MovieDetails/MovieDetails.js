@@ -1,4 +1,4 @@
-import { useLocation, useNavigate, useParams } from 'react-router-dom';
+import { useLocation, useNavigate, useParams, Outlet  } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { fetchForMoviesDetalis } from '../../api';
 import {
@@ -17,7 +17,7 @@ import {
 
 
 const MovieDetails = () => {
-  const [movie, setMovie] = useState({});
+  const [movie, setMovie] = useState([]);
   const location = useLocation();
   const navigate = useNavigate();
   const { movieId } = useParams();
@@ -27,7 +27,6 @@ const MovieDetails = () => {
       try {
         const response = await fetchForMoviesDetalis(movieId);
         setMovie(response.data);
-        console.log(response.data);
       } catch (error) {
         console.log(error.message);
       }
@@ -36,7 +35,6 @@ const MovieDetails = () => {
   }, [movieId]);
 
   const { overview, title, genres = [], vote_average, poster_path } = movie;
-  console.log(vote_average);
   return (
     <>
       <ButtonGoToBack
@@ -78,6 +76,7 @@ const MovieDetails = () => {
             </Ul>
           </div>
         </AboutFilm>
+        <Outlet />
       </Container>
     </>
   );

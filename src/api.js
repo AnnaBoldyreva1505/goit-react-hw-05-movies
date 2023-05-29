@@ -37,6 +37,27 @@ export const fetchForMoviesDetalis = (movieId) => {
 
 };
 
+export const fetchCast = (movieId) => {
+  return axios(`movie/${movieId}/credits`, {
+    params: {
+      api_key: API_KEY,
+    },
+  });
+
+};
+
+
+
+export const fetchReviews = (movieId) => {
+  return axios(`movie/${movieId}/reviews`, {
+    params: {
+      api_key: API_KEY,
+    },
+  });
+
+};
+
+
 
 
 
