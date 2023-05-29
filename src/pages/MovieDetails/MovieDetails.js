@@ -70,20 +70,10 @@ const MovieDetails = () => {
 
             <Ul>
               <Li>
-              <StyledLink
-                    to="cast"
-                    state={{ from: location.state?.from ?? '/' }}
-                  >
-                    Cast
-                  </StyledLink>
+              <StyledLink to="/">Cast</StyledLink>
               </Li>
               <Li>
-              <StyledLink
-                    to="reviews"
-                    state={{ from: location.state?.from ?? '/' }}
-                  >
-                    Reviews
-                  </StyledLink>
+              <StyledLink to="/">Reviews</StyledLink>
               </Li>
             </Ul>
           </div>
