@@ -1,1 +1,7 @@
-import styled from 'styled-components';
+
+
+const Reviews = () => {
+
+}
+
+export default Reviews
