@@ -1,5 +1,3 @@
-// import { useState } from 'react';
-// import PropTypes from 'prop-types';
 import { fetchForMoviesPage } from '../../api.js';
 import { useState, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
@@ -7,6 +5,8 @@ import toast, { Toaster } from 'react-hot-toast';
 import { MdMovieFilter } from 'react-icons/md';
 import img from '../../Images/No-Image-Placeholder.svg.png';
 import { Loader } from 'components/Loader/Loader.js';
+import { useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import {
   SearchbarWrapper,
   SearchForm,
@@ -19,11 +19,6 @@ import {
   FilmsTitle,
 } from './SearchBar.styled.js';
 
-
-
-
-
-
 export const Searchbar = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [isLoading, setIsLoading] = useState(false);
@@ -34,6 +29,7 @@ export const Searchbar = () => {
       searchQuery: '',
     },
   });
+  const location = useLocation();
 
 
   useEffect(() => {
@@ -72,10 +68,13 @@ export const Searchbar = () => {
 
   return (
     <>
-    {error && <p>ERROR!</p>}
+      {error && <p>ERROR!</p>}
       <SearchbarWrapper>
         <SearchForm onSubmit={handleSubmit(onSubmit)}>
-          <SearchFormButtonInput {...register('searchQuery')} placeholder='Search movies' />
+          <SearchFormButtonInput
+            {...register('searchQuery')}
+            placeholder="Search movies"
+          />
           <SearchFormButton type="submit" name="searchQuery">
             <Span>
               <MdMovieFilter size="2em" fill="#f50057" />
@@ -87,9 +86,12 @@ export const Searchbar = () => {
 
       {isLoading && <Loader />}
       <FilmsList>
-        {movies.map(({ title, id, poster_path}) => {
+        {movies.map(({ title, id, poster_path }) => {
           return (
             <FilmsItem key={id}>
+
+<Link to={`${id}`} state={{ from: location }}>
+
 
               {(poster_path && (
                 <FilmsImage
@@ -97,14 +99,15 @@ export const Searchbar = () => {
                   alt={title}
                   width="130"
                 />
-              )) || <FilmsImage src={img} alt={title}  />}
-                            <FilmsTitle>
+              )) || <FilmsImage src={img} alt={title} />}
+              <FilmsTitle>
                 <strong>{title}</strong>
               </FilmsTitle>
+              </Link>
             </FilmsItem>
           );
         })}
-        
+       
       </FilmsList>
     </>
   );

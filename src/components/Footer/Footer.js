@@ -11,9 +11,10 @@ export const Footer = () => {
           <Text>Developed by a GoIT student: </Text>
         </List>
         <List>
+          
           <Link href="https://github.com/AnnaBoldyreva1505">
             <Icon />
-            GitHub
+            Anna Boldyreva
           </Link>
         </List>
         <List>

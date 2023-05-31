@@ -1,6 +1,8 @@
 import React from 'react';
 import { useEffect, useState } from 'react';
+import { useLocation, Link } from 'react-router-dom';
 import { fetchMovies } from '../../api';
+import img from '../../Images/No-Image-Placeholder.svg.png';
 import {
   Title,
   OtherFilmsContainer,
@@ -11,10 +13,9 @@ import {
   OtherFilmsTitle,
 } from './Home.styled';
 
-
-
 export const Home = () => {
   const [movies, setMovies] = useState([]);
+  const location = useLocation();
 
   useEffect(() => {
     const fetchMoviesHome = async () => {
@@ -38,22 +39,27 @@ export const Home = () => {
           {movies.map(({ title, id, poster_path, vote_average }) => {
             return (
               <OtherFilmsItem key={id}>
-                 <OtherFilmsTitle><strong>{title}</strong></OtherFilmsTitle>
-                <OtherFilmsImage
-                  src={`https://image.tmdb.org/t/p/w500${poster_path}`}
-                  alt={title}
-                  // width="200"
-                />
-                <OtherFilmsRating>
-                  {parseFloat(vote_average.toFixed(1))}
-                </OtherFilmsRating>
-               
+                <Link to={`movies/${id}`} state={{ from: location }}>
+                  <OtherFilmsTitle>
+                    <strong>{title}</strong>
+                  </OtherFilmsTitle>
+
+                  {(poster_path && (
+                    <OtherFilmsImage
+                      src={`https://image.tmdb.org/t/p/w500${poster_path}`}
+                      alt={title}
+                    />
+                  )) || <OtherFilmsImage src={img} alt={title} />}
+
+                  <OtherFilmsRating>
+                    {parseFloat(vote_average.toFixed(1))}
+                  </OtherFilmsRating>
+                </Link>
               </OtherFilmsItem>
             );
           })}
         </OtherFilmsList>
       </OtherFilmsContainer>
-
     </>
   );
 };

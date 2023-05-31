@@ -33,6 +33,7 @@ export const ButtonGoToBack = styled.button`
 
 export const Container = styled.div`
   display: flex;
+  flex-wrap: wrap;
   align-items: flex-start;
   padding: 0 300px;
 `;
@@ -43,7 +44,7 @@ export const ImgContainer = styled.div`
 `;
 
 export const AboutFilm = styled.div`
-  flex: 1 1 auto;
+  flex: 1 1 50%;
   position: relative;
 `;
 
@@ -81,6 +82,26 @@ export const Raiting = styled.p`
 
 export const H3 = styled.h3`
   margin-bottom: 0;
+  font-size: 25px;
+`
+
+export const Info = styled.h3`
+  font-size: 30px;
+  text-transform: uppercase;
+  margin: 0;
+
+  position: relative;
+
+  &:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(to right, #9c27b0, #f50057);
+    transition: width 0.3s ease;
+  }
 `
 
 export const Ul = styled.ul`
@@ -102,9 +123,10 @@ export const Li = styled.li`
 export const StyledLink = styled(NavLink)`
   text-decoration: none;
   color: #000000;
-  padding: 5px;
+  padding: 5px 5px 5px 0;
   position: relative;
-  font-size: 18px;
+  font-size: 20px;
+  margin-bottom: 10px;
 
   &:before {
     content: '';
@@ -124,3 +146,12 @@ export const StyledLink = styled(NavLink)`
     }
   }
 `;
+
+
+export const AdditionalInfoContainer = styled.div`
+  flex: 1 1 100%;
+  order: 2;
+  margin-top: 20px;
+`;
+
+
