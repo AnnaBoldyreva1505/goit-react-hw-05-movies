@@ -35,7 +35,7 @@ const MovieDetails = () => {
     fetchMovieId();
   }, [movieId]);
 
-  const { overview, title, genres = [], vote_average, poster_path } = movie;
+  const { overview, title, genres = [], vote_average, poster_path, release_date } = movie;
   return (
     <>
       <ButtonGoToBack
@@ -60,7 +60,7 @@ const MovieDetails = () => {
         
         <AboutFilm>
           <Title>{title}</Title>
-          <Raiting>{vote_average}</Raiting>
+          <Raiting>{Math.round(vote_average * 10)}%</Raiting>
           <H3>Overview:</H3>
           <p>{overview} </p>
           <H3>Genres: </H3>
@@ -69,6 +69,8 @@ const MovieDetails = () => {
               <li key={id}>• {name}</li>
             ))}
           </p>
+          <H3>Release date:</H3>
+          <p>{release_date}</p>
         </AboutFilm>
         <AdditionalInfoContainer>
           <Info>Additional information:</Info>

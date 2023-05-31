@@ -22,7 +22,6 @@ export const Home = () => {
       try {
         const response = await fetchMovies();
         setMovies(response.data.results);
-        console.log(response.data.results)
       } catch (error) {
         console.log(error.message);
       } 
