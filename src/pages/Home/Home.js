@@ -22,11 +22,10 @@ export const Home = () => {
       try {
         const response = await fetchMovies();
         setMovies(response.data.results);
+        console.log(response.data.results)
       } catch (error) {
-        console.error('Произошла ошибка при получении данных:', error);
-      } finally {
-        console.log('Запрос завершен');
-      }
+        console.log(error.message);
+      } 
     };
     fetchMoviesHome();
   }, []);

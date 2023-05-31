@@ -6,7 +6,6 @@ import img from '../../Images/default-img-avatar.jpg';
 const Cast = () => {
   const [cast, setCast] = useState([]);
   const { movieId } = useParams();
-  console.log(cast);
 
   useEffect(() => {
     const fetchMovieCast = async () => {
