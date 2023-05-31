@@ -64,6 +64,8 @@ const MovieDetails = () => {
             ))}
           </p>
           <div>
+          
+          <div>
             <H3>Additional information:</H3>
 
             <Ul>
@@ -77,6 +79,7 @@ const MovieDetails = () => {
           </div>
         </AboutFilm>
         <Outlet />
+         </div>
       </Container>
     </>
   );
