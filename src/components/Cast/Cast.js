@@ -26,12 +26,14 @@ const Cast = () => {
           {cast.map(({ id, character, name, profile_path }) => {
             return (
               <Card key={id}>
-                {(profile_path && (
-                  <CardImage
-                    src={`https://image.tmdb.org/t/p/w500${profile_path}`}
-                    alt={name}
-                  />
-                )) || <CardImage src={img} alt={name} />}
+                <CardImage
+                  src={
+                    profile_path
+                      ? `https://image.tmdb.org/t/p/w500${profile_path}`
+                      : img
+                  }
+                  alt={name}
+                ></CardImage>
 
                 <CardText>Name: {name}</CardText>
                 <CardText>Character: {character}</CardText>
