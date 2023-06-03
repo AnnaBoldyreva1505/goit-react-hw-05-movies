@@ -27,4 +27,4 @@ const MovieList = ({movies}) => {
   );
 };
 
-export default Reviews;
+export default MovieList;
