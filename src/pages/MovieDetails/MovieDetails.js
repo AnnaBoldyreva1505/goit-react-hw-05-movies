@@ -35,7 +35,14 @@ const MovieDetails = () => {
     fetchMovieId();
   }, [movieId]);
 
-  const { overview, title, genres = [], vote_average, poster_path, release_date } = movie;
+  const {
+    overview,
+    title,
+    genres = [],
+    vote_average,
+    poster_path,
+    release_date,
+  } = movie;
   return (
     <>
       <ButtonGoToBack
@@ -46,18 +53,18 @@ const MovieDetails = () => {
         ← Go to back
       </ButtonGoToBack>
       <Container>
+        <ImgContainer>
+          <img
+            src={
+              poster_path
+                ? `https://image.tmdb.org/t/p/w500${poster_path}`
+                : { img }
+            }
+            alt="{title}"
+            width="300"
+          />
+        </ImgContainer>
 
-      
-      {(poster_path && (
-                <ImgContainer>
-                <img
-                  src={`https://image.tmdb.org/t/p/w500${poster_path}`}
-                  alt="{title}"
-                  width="300"
-                /> </ImgContainer>
-              )) || <ImgContainer><img src={img} alt={title} width='300' /></ImgContainer>}
-
-        
         <AboutFilm>
           <Title>{title}</Title>
           <Raiting>{Math.round(vote_average * 10)}%</Raiting>
@@ -74,7 +81,6 @@ const MovieDetails = () => {
         </AboutFilm>
         <AdditionalInfoContainer>
           <Info>Additional information:</Info>
-
           <Ul>
             <Li>
               <StyledLink to="cast">Cast</StyledLink>

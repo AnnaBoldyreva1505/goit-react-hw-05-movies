@@ -3,9 +3,9 @@ import { useState, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import toast, { Toaster } from 'react-hot-toast';
 import { MdMovieFilter } from 'react-icons/md';
-import img from '../../Images/No-Image-Placeholder.svg.png';
 import { Loader } from 'components/Loader/Loader.js';
-import { useLocation, Link, useSearchParams } from 'react-router-dom';
+import MovieList from '../../components/MovieList/MovieList.js';
+import { useSearchParams } from 'react-router-dom';
 
 import {
   SearchbarWrapper,
@@ -13,10 +13,6 @@ import {
   SearchFormButton,
   SearchFormButtonInput,
   Span,
-  FilmsList,
-  FilmsItem,
-  FilmsImage,
-  FilmsTitle,
 } from './Movies.styled.js';
 
 const Movies = () => {
@@ -32,7 +28,6 @@ const Movies = () => {
       searchQuery: '',
     },
   });
-  const location = useLocation();
 
   useEffect(() => {
     if (!searchQuery) {
@@ -49,7 +44,6 @@ const Movies = () => {
           );
           return;
         }
-
         setMovies([...response.data.results]);
         setError('');
       } catch (error) {
@@ -62,9 +56,9 @@ const Movies = () => {
     getMovies(searchQuery);
   }, [searchQuery]);
 
-  const onSubmit = (data) => {
+  const onSubmit = data => {
     setSearchParams({ searchQuery: data.searchQuery.trim() });
-    reset()
+    reset();
   };
 
   return (
@@ -86,26 +80,7 @@ const Movies = () => {
       </SearchbarWrapper>
 
       {isLoading && <Loader />}
-      <FilmsList>
-        {movies.map(({ title, id, poster_path }) => {
-          return (
-            <FilmsItem key={id}>
-              <Link to={`${id}`} state={{ from: location }}>
-                {(poster_path && (
-                  <FilmsImage
-                    src={`https://image.tmdb.org/t/p/w500${poster_path}`}
-                    alt={title}
-                    width="130"
-                  />
-                )) || <FilmsImage src={img} alt={title} />}
-                <FilmsTitle>
-                  <strong>{title}</strong>
-                </FilmsTitle>
-              </Link>
-            </FilmsItem>
-          );
-        })}
-      </FilmsList>
+      <MovieList movies={movies} />
     </>
   );
 };

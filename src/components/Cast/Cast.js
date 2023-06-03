@@ -34,7 +34,6 @@ const Cast = () => {
                   }
                   alt={name}
                 ></CardImage>
-
                 <CardText>Name: {name}</CardText>
                 <CardText>Character: {character}</CardText>
               </Card>
